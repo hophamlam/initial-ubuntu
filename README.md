@@ -93,8 +93,8 @@ sudo docker volume create portainer_data && sudo docker run -d -p 8000:8000 -p 9
 
 ```bash
 git clone https://github.com/hophamlam/install-new-server.git
-cd ~/nginx-proxy-manager
-docker-compose up -d
+cd ~/install-new-server/nginx-proxy-manager
+sudo docker-compose up -d
 ```
 
 Logging information: <code>admin@example.com</code> | <code>change</code>
