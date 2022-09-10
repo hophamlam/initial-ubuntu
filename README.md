@@ -92,6 +92,7 @@ sudo docker volume create portainer_data && sudo docker run -d -p 8000:8000 -p 9
 ## Nginx Proxy Manager
 
 ```bash
+git clone https://github.com/hophamlam/install-new-server.git
 cd ~/nginx-proxy-manager
 docker-compose up -d
 ```
