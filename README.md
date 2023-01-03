@@ -11,9 +11,9 @@
 
 # Before begin, prepare:
 
-Recommended linux distro: `ubuntu 20.04` (tested)
+- Recommended linux distro: `ubuntu 20.04` (tested)
 
-`id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
+- `id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
 
 ```bash
 ## at your local pc
@@ -23,7 +23,7 @@ ls -al ~/.ssh ## to organize keys -> check key
 nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-key from the rebuilt server
 ```
 
-`root-password` of your server - from your provider
+- `root-password` of your server - from your provider
 
 # Getting Started
 
