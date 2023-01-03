@@ -142,6 +142,18 @@ Done docker-compose then edit Caddyfile
 nano containers/caddy/Caddyfile
 ```
 
+```bash
+## example Caddyfile
+
+email {
+hophamlam92@yahoo.com
+}
+
+portainer.your-domain.com {
+reverse_proxy portainer:9000
+}
+```
+
 ### Restart caddy container
 
 Open browser hit `http://your-server-ip:9000", login and restart the caddy container
@@ -150,4 +162,15 @@ Open browser hit `http://your-server-ip:9000", login and restart the caddy conta
 
 ```bash
 sudo docker restart caddy
+```
+
+### In case you need to kill and remove all container
+
+```bash
+sudo docker kill portainer
+sudo docker kill caddy
+sudo docker rm porainter
+sudo docker rm caddy
+sudo docker ps -a
+#check if nothing display is good
 ```
