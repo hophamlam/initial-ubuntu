@@ -117,7 +117,7 @@ docker --version && docker-compose --version
 ### Clone the repo
 
 ```bash
-git clone https://github.com/hophamlam/install-fresh-server-portainer-caddy.git && cd portainer-caddy
+git clone https://github.com/hophamlam/install-fresh-server-portainer-caddy.git && cd install-fresh-server-portainer-caddy
 ```
 
 ### Modify `.env` to suit yours
