@@ -1,16 +1,22 @@
 # Before begin, prepare:
 
+This script will install
+
+- [A new non-root user, turn on SSH-key login, disable root login](#install-new-non-root-user-for-a-fresh-server-with-ssh-key-log-in-and-disable-root)
+- [Docker and Docker-compose](#docker-and-docker-compose)
+
 `id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
 
 `root-password` of your server - from your provider
 
 # Getting Started
 
-## Install new non-root user for a fresh server with ssh-key log in and disable root
-
 ```bash
-sh install-fresh-server.sh
+wget https://raw.githubusercontent.com/hophamlam/portainer-caddy-new-server/main/install-fresh-server.sh
+sh install-fresh-server.sh && bash ./install-fresh-server.sh
 ```
+
+## Install new non-root user for a fresh server with ssh-key log in and disable root
 
 It will do apt update and upgrade, install git, clone jasonheecs repo. It will ask you:
 
