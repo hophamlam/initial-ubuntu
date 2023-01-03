@@ -40,7 +40,7 @@ Paste the `id_rsa.pub` we have prepared before
 
 ![timezone](image/timezone.jpg)
 
-`your-server-timezone` mine is Asia/Ho_Chi_Minh, visit [List of tz database time zones]https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+`your-server-timezone` mine is Asia/Ho_Chi_Minh, visit [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 ## Next, the script will install Docker and Docker-compose
 
