@@ -14,7 +14,7 @@ Recommended linux distro: `ubuntu 20.04` (tested)
 ssh-keygen -t rsa
 cat ~/.ssh/id_rsa.pub ## !!IMPORTANT print PC public key OUT
 ls -al ~/.ssh ## to organize keys -> check key
-nano ~/.ssh/known_hosts ## In case you re-install server
+nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-key from the rebuilt server
 ```
 
 `root-password` of your server - from your provider
