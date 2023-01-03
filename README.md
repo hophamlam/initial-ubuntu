@@ -15,12 +15,12 @@ It will do apt update and upgrade, install git, clone jasonheecs repo. It will a
 
 ### Do you want to create a new non-root user (Recommended)
 
-![create-new-non-root-user](image\create-new-non-root-user.jpg)
+![create-new-non-root-user](image/create-new-non-root-user.jpg)
 `Y`
 
 ### Enter the username of the new user account:
 
-![new-user-account](image\new-user-account.jpg)
+![new-user-account](image/new-user-account.jpg)
 `your-account` (not your-account, your real account)
 
 ### Full name, room number, work phone, home phone, other,...
@@ -31,13 +31,13 @@ Just `enter` for default anwser
 
 This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again
 
-![ssh-key](image\ssh-key.jpg)
+![ssh-key](image/ssh-key.jpg)
 
 Paste the `id_rsa.pub` we have prepared before
 
 ### Enter the timezone for the server (Default is 'Asia/Singapor')
 
-![timezone](image\timezone.jpg)
+![timezone](image/timezone.jpg)
 
 `your-server-timezone` mine is Asia/Ho_Chi_Minh, visit [List of tz database time zones]https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
@@ -67,7 +67,7 @@ If you can log in without input password, you good
 
 ## Docker and Docker-Compose
 
-![docker](image\docker.png)
+![docker](image/docker.jpg)
 
 ```bash
 docker --version && docker-compose --version
