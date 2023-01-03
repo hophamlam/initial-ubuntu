@@ -1,0 +1,9 @@
+## example
+
+email {
+example@domain.com
+}
+
+portainer.your-domain.com {
+reverse_proxy portainer:9000
+}

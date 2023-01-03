@@ -1,7 +1,13 @@
 # This script will install
 
+## Install fresh server
+
 - [A new non-root user, turn on SSH-key login, disable root login](#install-new-non-root-user-for-a-fresh-server-with-ssh-key-log-in-and-disable-root)
 - [Docker and Docker-compose](#docker-and-docker-compose)
+
+## Install portainer and caddy (optional)
+
+- [Portainer & Caddy server](#portainer-and-caddy-server)
 
 # Before begin, prepare:
 
@@ -102,4 +108,46 @@ If you can log in without input password, you good
 
 ```bash
 docker --version && docker-compose --version
+```
+
+# Portainer and Caddy server
+
+## Getting started
+
+### Clone the repo
+
+```bash
+git clone https://github.com/hophamlam/portainer-caddy.git && cd portainer-caddy
+```
+
+### Modify `.env` to suit yours
+
+```bash
+nano .env
+```
+
+### docker-compose up
+
+```bash
+sudo docker volume create --name=caddy_data && docker-compose --env-file .env up -d
+```
+
+Done docker-compose then edit Caddyfile
+
+## Point domain to container
+
+### Modify `Caddyfile`
+
+```bash
+nano containers/caddy/Caddyfile
+```
+
+### Restart caddy container
+
+Open browser hit `http://your-server-ip:9000", login and restart the caddy container
+
+**Or**
+
+```bash
+sudo docker restart caddy
 ```
