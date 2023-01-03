@@ -1,6 +1,7 @@
 # Before begin, prepare:
 
 `id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
+
 `root-password` of your server - from your provider
 
 # Getting Started
@@ -41,9 +42,9 @@ Paste the `id_rsa.pub` we have prepared before
 
 `your-server-timezone` mine is Asia/Ho_Chi_Minh, visit [List of tz database time zones]https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
-### Finish
-
 ## Next, the script will install Docker and Docker-compose
+
+After getting it all done, we need to check if the script run well
 
 # Double Check
 
