@@ -165,7 +165,7 @@ sudo docker restart caddy
 ```
 
 ![caddy-portainer-1](image/caddy-portainer-1.jpg)
-![caddy-portainer-2](image/caddy-portainer-2.jpg)
+![caddy-portainer-3](image/caddy-portainer-3.jpg)
 
 ### In case you need to kill and remove all container
 
