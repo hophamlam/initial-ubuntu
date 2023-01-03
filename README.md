@@ -156,7 +156,7 @@ reverse_proxy portainer:9000
 
 ### Restart caddy container
 
-Open browser hit `http://your-server-ip:9000", login and restart the caddy container
+Open browser hit `http://your-server-ip:9000`, login and restart the caddy container
 
 **Or**
 
