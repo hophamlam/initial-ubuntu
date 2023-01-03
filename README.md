@@ -7,6 +7,13 @@
 
 `id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
 
+```bash
+## at your local pc
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub ## !!IMPORTANT print PC public key OUT
+ls -al ~/.ssh ## to organize keys -> check key
+```
+
 `root-password` of your server - from your provider
 
 # Getting Started
