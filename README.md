@@ -5,6 +5,8 @@
 
 # Before begin, prepare:
 
+Recommended linux distro: `ubuntu 20.04` (tested)
+
 `id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
 
 ```bash
