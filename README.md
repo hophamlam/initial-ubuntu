@@ -1,104 +1,74 @@
-# Setup SSH public key for server
+# Before begin, prepare:
+
+`id_rsa.pub` - ssh-key in your local pc (here is id_rsa.pub) - copy and paste down the your id_rsa.pub somewhere or even here
+`root-password` of your server - from your provider
+
+# Getting Started
+
+## Install new non-root user for a fresh server with ssh-key log in and disable root
 
 ```bash
-#  check key
-ls -al ~/.ssh
-# You can do
-rm -rf ~/.ssh/* ##to remove everything in your .ssh folder.
-# tạo key
-ssh-keygen -C "ten-key"
-# copy key
-cat ~/.ssh/ten-key
-cat ~/.ssh/ten-key.pub ## !!!IMPORTANTprint PC public key OUT HERE
-nano ~/.ssh/authorized_keys
-# change port
-nano /etc/ssh/sshd_config
-service ssh restart
+sh install-fresh-server.sh
 ```
 
-# Install Logging into server using SSH-key
+It will do apt update and upgrade, install git, clone jasonheecs repo. It will ask you:
+
+### Do you want to create a new non-root user (Recommended)
+
+![create-new-non-root-user](image\create-new-non-root-user.jpg)
+`Y`
+
+### Enter the username of the new user account:
+
+![new-user-account](image\new-user-account.jpg)
+`your-account` (not your-account, your real account)
+
+### Full name, room number, work phone, home phone, other,...
+
+Just `enter` for default anwser
+
+### Paste in the public SSH key for the new user
+
+This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again
+
+![ssh-key](image\ssh-key.jpg)
+
+Paste the `id_rsa.pub` we have prepared before
+
+### Enter the timezone for the server (Default is 'Asia/Singapor')
+
+![timezone](image\timezone.jpg)
+
+`your-server-timezone` mine is Asia/Ho_Chi_Minh, visit [List of tz database time zones]https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+### Finish
+
+## Next, the script will install Docker and Docker-compose
+
+# Double Check
+
+## SSH-key login
+
+Open a new terminal Git Bash
+
+Try
 
 ```bash
-## at local PC
-ssh-keygen -t rsa
-cat ~/.ssh/id_rsa.pub ###  !!!IMPORTANTprint PC public key OUT HERE
-
-### example key
-ssh-rsa AH^&*T*GHJIBKAJSD lamgaopc
-## log in to server as root
-ssh root@server
-### apt-update
-export DEBIAN_FRONTEND=noninteractive
-apt-get update &&
-    apt-get -o Dpkg::Options::="--force-confold" upgrade -q -y --force-yes &&
-    apt-get -o Dpkg::Options::="--force-confold" dist-upgrade -q -y --force-yes
-### install git
-sudo apt-get install git
-### clone jasonheecs repo
-git clone https://github.com/jasonheecs/ubuntu-server-setup.git && cd ~/ubuntu-server-setup/ && bash setup.sh
-### Paste in the public SSH key for the new user:
-### ---> Paste in the public key
-### Running setup script...
-### Enter the timezone for the server (Default is 'Asia/Singapore'):
-Asia/Ho_Chi_Minh
-### Timezone is set to Asia/Ho_Chi_Minh
-### Installing Network Time Protocol...
-### Setup Done! Log file is located at output.lo
-
-## Open new terminal to test
-ssh user@ip
+ssh your-remote-server-ip
 ```
 
-# Install Docker && Docker-Compose && Portainer && Nginx Proxy Manager
-
-## [Install docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)
+or
 
 ```bash
-sudo apt update && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && apt-cache policy docker-ce && sudo apt install docker-ce -y && sudo systemctl status docker
+ssh your-account@your-remote-server-ip
 ```
 
-Output is below
+If you can log in without input password, you good
+
+## Docker and Docker-Compose
+
+![docker](image\docker.png)
 
 ```bash
-Output
-● docker.service - Docker Application Container Engine
-     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
-     Active: active (running) since Tue 2020-05-19 17:00:41 UTC; 17s ago
-TriggeredBy: ● docker.socket
-       Docs: https://docs.docker.com
-   Main PID: 24321 (dockerd)
-      Tasks: 8
-     Memory: 46.4M
-     CGroup: /system.slice/docker.service
-             └─24321 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+docker --version && docker-compose --version
 ```
-
-## Docker Compose
-
-```bash
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&sudo chmod +x /usr/local/bin/docker-compose && docker-compose --version
-```
-
-## Portainer
-
-```bash
-sudo docker volume create portainer_data && sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer \
-    --restart=always \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v portainer_data:/data \
-    portainer/portainer-ce:latest
-```
-
-## Nginx Proxy Manager
-
-```bash
-git clone https://github.com/hophamlam/install-new-server.git
-cd ~/install-new-server/nginx-proxy-manager
-sudo docker-compose up -d
-```
-
-Logging information: <code>admin@example.com</code> | <code>change</code>
-
-# One command install script
-
-Will update soon!

@@ -1,0 +1,37 @@
+version: "3.3"
+networks:
+  caddy:
+services:
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /home/hophamlam/containers/portainer/portainer-data:/data
+    networks:
+      - caddy
+    ports:
+      - 9000:9000
+
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    container_name: caddy
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - /home/hophamlam/containers/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - /home/hophamlam/containers/caddy/site:/srv
+      - /home/hophamlam/containers/caddy/caddy_data:/data
+      - /home/hophamlam/containers/caddy/caddy_config:/config
+    networks:
+      - caddy
+volumes:
+  caddy_data:
+    external: true
+  caddy_config:
