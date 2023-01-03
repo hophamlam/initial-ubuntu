@@ -117,7 +117,7 @@ docker --version && docker-compose --version
 ### Clone the repo
 
 ```bash
-git clone https://github.com/hophamlam/portainer-caddy.git && cd portainer-caddy
+git clone https://github.com/hophamlam/install-fresh-server-portainer-caddy.git && cd portainer-caddy
 ```
 
 ### Modify `.env` to suit yours
@@ -129,7 +129,7 @@ nano .env
 ### docker-compose up
 
 ```bash
-sudo docker volume create --name=caddy_data && docker-compose --env-file .env up -d
+sudo docker volume create --name=caddy_data && sudo docker-compose --env-file .env up -d
 ```
 
 Done docker-compose then edit Caddyfile

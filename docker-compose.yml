@@ -11,7 +11,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /home/$USERNAME/containers/portainer/portainer-data:/data
+      - /home/$USERNAME/install-fresh-server-portainer-caddy/containers/portainer/portainer-data:/data
     networks:
       - caddy
     ports:
@@ -25,10 +25,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - /home/$USERNAME/containers/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - /home/$USERNAME/containers/caddy/site:/srv
-      - /home/$USERNAME/containers/caddy/caddy_data:/data
-      - /home/$USERNAME/containers/caddy/caddy_config:/config
+      - /home/$USERNAME/install-fresh-server-portainer-caddy/containers/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - /home/$USERNAME/install-fresh-server-portainer-caddy/containers/caddy/site:/srv
+      - /home/$USERNAME/install-fresh-server-portainer-caddy/containers/caddy/caddy_data:/data
+      - /home/$USERNAME/install-fresh-server-portainer-caddy/containers/caddy/caddy_config:/config
     networks:
       - caddy
 volumes:
