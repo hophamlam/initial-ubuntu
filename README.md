@@ -32,11 +32,13 @@ It will do apt update and upgrade, install git, clone jasonheecs repo. It will a
 ### Do you want to create a new non-root user (Recommended)
 
 ![create-new-non-root-user](image/create-new-non-root-user.jpg)
+
 `Y`
 
 ### Enter the username of the new user account:
 
 ![new-user-account](image/new-user-account.jpg)
+
 `your-account` (not your-account, your real account)
 
 ### Full name, room number, work phone, home phone, other,...
