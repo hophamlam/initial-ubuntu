@@ -21,6 +21,8 @@ nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-ke
 
 # Getting Started
 
+1 script to go (and some prompt input 😂)
+
 ```bash
 wget https://raw.githubusercontent.com/hophamlam/portainer-caddy-new-server/main/install-fresh-server.sh
 sh install-fresh-server.sh && bash ./install-fresh-server.sh
@@ -34,7 +36,9 @@ It will do apt update and upgrade, install git, clone jasonheecs repo. It will a
 
 ![create-new-non-root-user](image/create-new-non-root-user.jpg)
 
-`Y`
+```
+Y
+```
 
 ### Enter the username of the new user account:
 
@@ -44,7 +48,7 @@ It will do apt update and upgrade, install git, clone jasonheecs repo. It will a
 
 ### Full name, room number, work phone, home phone, other,...
 
-Just `enter` for default anwser
+Just `enter` for all default anwser
 
 ### Paste in the public SSH key for the new user
 
@@ -58,7 +62,15 @@ Paste the `id_rsa.pub` we have prepared before
 
 ![timezone](image/timezone.jpg)
 
-`your-server-timezone` mine is Asia/Ho_Chi_Minh, visit [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+`your-server-timezone`
+
+mine is
+
+```
+Asia/Ho_Chi_Minh
+```
+
+Check [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 ## Next, the script will install Docker and Docker-compose
 
