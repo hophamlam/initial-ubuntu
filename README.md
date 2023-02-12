@@ -138,8 +138,10 @@ Done docker-compose then edit Caddyfile
 
 ### Modify `Caddyfile`
 
+Can also be use to update new rule or you just deployed a new web app and further purpose, remember to restart caddy after editing to apply changes
+
 ```bash
-nano containers/caddy/Caddyfile
+nano ~/install-fresh-server-portainer-caddy/containers/caddy/Caddyfile
 ```
 
 ```bash
