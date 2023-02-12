@@ -154,6 +154,8 @@ reverse_proxy portainer:9000
 }
 ```
 
+`⚠️ IMPORTANT: remember to let the container stacks join the network with caddy container`
+
 ### Restart caddy container
 
 Open browser hit `http://your-server-ip:9000`, login and restart the caddy container
