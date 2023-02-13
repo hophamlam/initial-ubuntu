@@ -156,7 +156,11 @@ reverse_proxy portainer:9000
 }
 ```
 
-`⚠️ IMPORTANT: remember to let the container stacks join the network with caddy container`
+`⚠️ IMPORTANT: `
+
+- Join the wg-easy container with caddy container network
+- Point domain to host
+- Test doamin
 
 ### Restart caddy container
 
