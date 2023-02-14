@@ -181,7 +181,7 @@ reverse_proxy portainer:9000
 }
 ```
 
-`⚠️ IMPORTANT: `
+`⚠️IMPORTANT:`
 
 - Join the wg-easy container with caddy container network
 - Point domain to host
