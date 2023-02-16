@@ -129,6 +129,7 @@ sudo docker volume create --name=caddy_data # Create caddy data
 sudo mkdir ~/portainer-caddy-wg
 sudo mkdir ~/portainer-caddy-wg/caddy
 sudo mkdir ~/portainer-caddy-wg/portainer
+sudo mkdir ~/portainer-caddy-wg/wg
 sudo nano ~/portainer-caddy-wg/caddy/Caddyfile
 ```
 
