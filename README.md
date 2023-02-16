@@ -1,4 +1,16 @@
-# This script will install
+- [This script will install:](#this-script-will-install)
+- [Initial new fresh server using jasonheecs repo](#initial-new-fresh-server-using-jasonheecs-repo)
+  - [Recommendation](#recommendation)
+  - [Getting Started](#getting-started)
+  - [Next, the script will install Docker and Docker-compose](#next-the-script-will-install-docker-and-docker-compose)
+  - [Check if everything is good](#check-if-everything-is-good)
+- [Install Portainer CE \& Caddy-server \& Wireguard Server](#install-portainer-ce--caddy-server--wireguard-server)
+  - [Before you go](#before-you-go)
+  - [1 script to Install Portainer CE \& Caddy-server \& Wireguard Server](#1-script-to-install-portainer-ce--caddy-server--wireguard-server)
+  - [Modify `Caddyfile`](#modify-caddyfile)
+  - [In case you need to kill and remove all container](#in-case-you-need-to-kill-and-remove-all-container)
+
+# This script will install:
 
 - Initial new fresh server using [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (a new non-root user, turn on SSH-key login, disable root login)
 - [Docker](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04) and [Docker-compose](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)
@@ -32,11 +44,9 @@ nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-ke
 wget https://raw.githubusercontent.com/hophamlam/initial-server-hophamlam/main/initial-server-script.sh && bash ./initial-server-script.sh
 ```
 
-### Install new non-root user for a fresh server with ssh-key log in and disable root
+It will do apt update and upgrade, install git, clone jasonheecs repo (Install new non-root user for a fresh server with ssh-key log in and disable root). It will ask you:
 
-It will do apt update and upgrade, install git, clone jasonheecs repo. It will ask you:
-
-### Do you want to create a new non-root user (Recommended)
+**Do you want to create a new non-root user (Recommended)**
 
 ![create-new-non-root-user](image/create-new-non-root-user.jpg)
 
@@ -44,17 +54,17 @@ It will do apt update and upgrade, install git, clone jasonheecs repo. It will a
 Y
 ```
 
-### Enter the username of the new user account:
+**Enter the username of the new user account:**
 
 ![new-user-account](image/new-user-account.jpg)
 
 `your-account` (not your-account, your real account)
 
-### Full name, room number, work phone, home phone, other,...
+**Full name, room number, work phone, home phone, other,...**
 
 Just `enter` for all default anwser
 
-### Paste in the public SSH key for the new user
+**Paste in the public SSH key for the new user**
 
 This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again
 
@@ -62,7 +72,7 @@ This is the important one, if pass the wrong key, you have to rebuild the server
 
 Paste the `id_rsa.pub` we have prepared before
 
-### Enter the timezone for the server (Default is 'Asia/Singapore')
+**Enter the timezone for the server (Default is 'Asia/Singapore')**
 
 ![timezone](image/timezone.jpg)
 
@@ -82,11 +92,8 @@ After getting it all done, we need to check if the script run well
 
 ## Check if everything is good
 
-### SSH-key login
-
-Open a new terminal Git Bash
-
-Try
+**SSH-key login:**
+Open a new terminal Git Bash, try:
 
 ```bash
 ssh your-remote-server-ip
@@ -100,7 +107,7 @@ ssh your-account@your-remote-server-ip
 
 If you can log in without input password, you good
 
-### Docker and Docker-Compose
+**Docker and Docker-Compose**
 
 ![docker](image/docker.jpg)
 
@@ -175,7 +182,7 @@ sudo docker restart caddy
 ![caddy-portainer-1](image/caddy-portainer-1.jpg)
 ![caddy-portainer-3](image/caddy-portainer-3.jpg)
 
-### In case you need to kill and remove all container
+## In case you need to kill and remove all container
 
 ```bash
 sudo docker kill portainer
