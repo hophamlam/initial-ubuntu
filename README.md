@@ -120,11 +120,13 @@ docker --version && docker-compose --version
 
 ## Before you go
 
-Create a Caddyfile:
+Create a Caddyfile & Portainer data
 
 ```bash
+sudo docker volume create --name=caddy_data # Create caddy data
 sudo mkdir ~/portainer-caddy-wg
 sudo mkdir ~/portainer-caddy-wg/caddy
+sudo mkdir ~/portainer-caddy-wg/portainer
 sudo nano ~/portainer-caddy-wg/caddy/Caddyfile
 ```
 
@@ -139,14 +141,17 @@ reverse_proxy portainer:9000 # Reverse proxy to Portainer container example
 ## 1 script to Install [Portainer CE](https://docs.portainer.io/start/install-ce) & [Caddy-server](https://caddyserver.com/) & [Wireguard Server](https://github.com/WeeJeWel/wg-easy)
 
 Download docker-compose file and Edit Wireguard server password
-![Alt text](image/wg-password.jpg)
 
 ```bash
 sudo wget https://raw.githubusercontent.com/hophamlam/initial-server-hophamlam/main/docker-compose.yml -P ~/portainer-caddy-wg/ && sudo nano ~/portainer-caddy-wg/docker-compose.yml
 ```
 
+![Alt text](image/wg-password.jpg)
+
+**Now we go**
+
 ```bash
-bash ~/portainer-caddy-wg/docker compose up -d
+docker-compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
 ```
 
 ## Modify `Caddyfile`

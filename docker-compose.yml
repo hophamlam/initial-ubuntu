@@ -13,7 +13,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /home/$USERNAME/ initial-server-hophamlam/portainer-caddy-wg/portainer/portainer-data:/data
+      - ~/portainer-caddy-wg/portainer/portainer-data:/data
     networks:
       - caddy
     ports:
@@ -38,7 +38,7 @@ services:
     environment:
       # ⚠️ Required:
       # Change this to your host's public address
-      # - WG_HOST=$WG_BASEURL
+      - WG_HOST=example.com #change
 
       # Optional:
       - PASSWORD=foobar123 # change
@@ -60,7 +60,8 @@ services:
       - "51820:51820/udp"
       - "51821:51821/tcp"
     restart: unless-stopped
-    networks: caddy
+    networks:
+      - caddy
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
