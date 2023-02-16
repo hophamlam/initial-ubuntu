@@ -9,6 +9,7 @@
   - [1 script to Install Portainer CE \& Caddy-server \& Wireguard Server](#1-script-to-install-portainer-ce--caddy-server--wireguard-server)
   - [Modify `Caddyfile`](#modify-caddyfile)
   - [In case you need to kill and remove all container](#in-case-you-need-to-kill-and-remove-all-container)
+  - [In case you need to install Portainer Agent](#in-case-you-need-to-install-portainer-agent)
 
 # This script will install:
 
@@ -191,4 +192,10 @@ sudo docker rm porainter
 sudo docker rm caddy
 sudo docker ps -a
 #check if nothing display is good
+```
+
+## In case you need to install [Portainer Agent](https://docs.portainer.io/start/agent/docker/linux)
+
+```bash
+docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
 ```
