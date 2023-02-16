@@ -120,6 +120,8 @@ docker --version && docker-compose --version
 
 ## Before you go
 
+Log in as user you just created `ssh user@your-server`
+
 Create a Caddyfile & Portainer data
 
 ```bash
