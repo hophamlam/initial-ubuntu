@@ -106,7 +106,7 @@ or
 ssh your-account@your-remote-server-ip
 ```
 
-If you can log in without input password, you good
+If you can log in without input password, you good and **from now you should exit root user ssh session and using** `ssh user@your-server`
 
 **Docker and Docker-Compose**
 
