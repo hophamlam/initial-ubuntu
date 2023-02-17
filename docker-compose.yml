@@ -13,7 +13,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ~/portainer-caddy-wg/portainer/portainer-data:/data
+      - ./portainer-caddy-wg/portainer/portainer-data:/data
     networks:
       - caddy
     ports:
@@ -27,10 +27,10 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ~/portainer-caddy-wg/caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ~/portainer-caddy-wg/caddy/site:/srv
-      - ~/portainer-caddy-wg/caddy/caddy_data:/data
-      - ~/portainer-caddy-wg/caddy/caddy_config:/config
+      - ./portainer-caddy-wg/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./portainer-caddy-wg/caddy/site:/srv
+      - ./portainer-caddy-wg/caddy/caddy_data:/data
+      - ./portainer-caddy-wg/caddy/caddy_config:/config
     networks:
       - caddy
 
@@ -55,7 +55,7 @@ services:
     image: weejewel/wg-easy
     container_name: wg-easy
     volumes:
-      - ~/portainer-caddy-wg/wg:/etc/wireguard
+      - ./portainer-caddy-wg/wg:/etc/wireguard
     ports:
       - "51820:51820/udp"
       - "51821:51821/tcp"

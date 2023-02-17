@@ -2,8 +2,8 @@
 - [Initial new fresh server using jasonheecs repo](#initial-new-fresh-server-using-jasonheecs-repo)
   - [Recommendation](#recommendation)
   - [Getting Started](#getting-started)
-  - [Next, the script will install Docker and Docker-compose](#next-the-script-will-install-docker-and-docker-compose)
   - [Check if everything is good](#check-if-everything-is-good)
+- [Install Docker and Docker-compose](#install-docker-and-docker-compose)
 - [Install Portainer CE \& Caddy-server \& Wireguard Server](#install-portainer-ce--caddy-server--wireguard-server)
   - [Before you go](#before-you-go)
   - [1 script to Install Portainer CE \& Caddy-server \& Wireguard Server](#1-script-to-install-portainer-ce--caddy-server--wireguard-server)
@@ -87,10 +87,6 @@ Asia/Ho_Chi_Minh
 
 Check [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-## Next, the script will install Docker and Docker-compose
-
-After getting it all done, we need to check if the script run well
-
 ## Check if everything is good
 
 **SSH-key login:**
@@ -108,13 +104,24 @@ ssh your-account@your-remote-server-ip
 
 If you can log in without input password, you good and **from now you should exit root user ssh session and using** `ssh user@your-server`
 
-**Docker and Docker-Compose**
+# Install Docker and Docker-compose
 
-![docker](image/docker.jpg)
+Log in as user you just created `ssh user@your-server` from local or `su - yourusername` from root access
 
 ```bash
-docker --version && docker-compose --version
+## Install Docker
+sudo apt update && sudo apt install apt-transport-https ca-certificates curl software-properties-common -y && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" && apt-cache policy docker-ce && sudo apt install docker-ce -y
+## Install Docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose &&sudo chmod +x /usr/local/bin/docker-compose
+## Check if Docker-compose is installed
 ```
+
+```bash
+#Check if docker & docker-compose is installed
+sudo docker --version && docker-compose --version
+```
+
+![docker](image/docker.jpg)
 
 # Install [Portainer CE](https://docs.portainer.io/start/install-ce) & [Caddy-server](https://caddyserver.com/) & [Wireguard Server](https://github.com/WeeJeWel/wg-easy)
 
@@ -154,7 +161,7 @@ sudo wget https://raw.githubusercontent.com/hophamlam/initial-server-hophamlam/m
 **Now we go**
 
 ```bash
-docker-compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
+sudo docker-compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
 ```
 
 ## Modify `Caddyfile`
@@ -162,7 +169,7 @@ docker-compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
 Whenever you want to update new record in Caddyfile:
 
 ```bash
-nano ~/portainer-caddy-wg/caddy/Caddyfile
+sudo nano ~/portainer-caddy-wg/caddy/Caddyfile
 ```
 
 ```bash
@@ -205,5 +212,5 @@ sudo docker ps -a
 ## In case you need to install [Portainer Agent](https://docs.portainer.io/start/agent/docker/linux)
 
 ```bash
-docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
 ```
