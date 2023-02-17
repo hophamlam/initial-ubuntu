@@ -160,7 +160,7 @@ sudo wget https://raw.githubusercontent.com/hophamlam/initial-server-hophamlam/m
 **Now we go**
 
 ```bash
-sudo docker-compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
+sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
 ```
 
 ## Modify `Caddyfile`
