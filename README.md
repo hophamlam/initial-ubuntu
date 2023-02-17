@@ -144,7 +144,7 @@ Caddyfile example:
 
 ```bash
 portainer.your-domain.com {
-reverse_proxy portainer:9000 # Reverse proxy to Portainer container example
+  reverse_proxy portainer:9000 # Reverse proxy to Portainer container example
 }
 ```
 
