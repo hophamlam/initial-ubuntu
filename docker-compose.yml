@@ -52,7 +52,7 @@ services:
       # - WG_PRE_DOWN=echo "Pre Down" > /etc/wireguard/pre-down.txt
       # - WG_POST_DOWN=echo "Post Down" > /etc/wireguard/post-down.txt
 
-    image: weejewel/wg-easy
+    image: weejewel/wg-easy:latest
     container_name: wg-easy
     volumes:
       - ./wg:/etc/wireguard

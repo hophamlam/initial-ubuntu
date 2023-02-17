@@ -10,6 +10,7 @@
   - [Modify `Caddyfile`](#modify-caddyfile)
   - [In case you need to kill and remove all container](#in-case-you-need-to-kill-and-remove-all-container)
   - [In case you need to install Portainer Agent](#in-case-you-need-to-install-portainer-agent)
+  - [Update portainer, caddy, wg stack](#update-portainer-caddy-wg-stack)
 
 # This script will install:
 
@@ -212,4 +213,10 @@ sudo docker ps -a
 
 ```bash
 sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+```
+
+## Update portainer, caddy, wg stack
+
+```bash
+sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml down && sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
 ```
