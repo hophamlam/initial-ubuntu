@@ -42,7 +42,7 @@ nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-ke
 1 script to go (and some prompt input 😂)
 
 ```bash
-wget https://raw.githubusercontent.com/hophamlam/initial-server-hophamlam/main/initial-server-script.sh && bash ./initial-server-script.sh
+wget https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh && bash ./initial-server-script.sh
 ```
 
 It will do apt update and upgrade, install git, clone jasonheecs repo (Install new non-root user for a fresh server with ssh-key log in and disable root). It will ask you:
@@ -152,7 +152,7 @@ reverse_proxy portainer:9000 # Reverse proxy to Portainer container example
 Download docker-compose file and Edit Wireguard server password
 
 ```bash
-sudo wget https://raw.githubusercontent.com/hophamlam/initial-server-hophamlam/main/docker-compose.yml -P ~/portainer-caddy-wg/ && sudo nano ~/portainer-caddy-wg/docker-compose.yml
+sudo wget https://raw.githubusercontent.com/hophamlam/initial-server/main/docker-compose.yml -P ~/portainer-caddy-wg/ && sudo nano ~/portainer-caddy-wg/docker-compose.yml
 ```
 
 ![Alt text](image/wg-password.jpg)
