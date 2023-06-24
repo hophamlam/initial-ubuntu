@@ -1,7 +1,7 @@
 version: "3.3"
 
 networks:
-  caddy:
+  initial-server:
 
 services:
   portainer:
@@ -15,7 +15,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./portainer/portainer-data:/data
     networks:
-      - caddy
+      - initial-server
     ports:
       - 9000:9000
 
@@ -32,7 +32,7 @@ services:
       - ./caddy/caddy_data:/data
       - ./caddy/caddy_config:/config
     networks:
-      - caddy
+      - initial-server
 
   wg-easy:
     environment:
@@ -61,7 +61,7 @@ services:
       - "51821:51821/tcp"
     restart: unless-stopped
     networks:
-      - caddy
+      - initial-server
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
