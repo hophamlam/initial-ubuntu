@@ -137,11 +137,11 @@ Create a Caddyfile & Portainer data
 
 ```bash
 sudo docker volume create --name=caddy_data # Create caddy data
-sudo mkdir ~/portainer-caddy-wg
-sudo mkdir ~/portainer-caddy-wg/caddy
-sudo mkdir ~/portainer-caddy-wg/portainer
-sudo mkdir ~/portainer-caddy-wg/wg
-sudo nano ~/portainer-caddy-wg/caddy/Caddyfile
+sudo mkdir ~/initial-server
+sudo mkdir ~/initial-server/caddy
+sudo mkdir ~/initial-server/portainer
+sudo mkdir ~/initial-server/wg
+sudo nano ~/initial-server/caddy/Caddyfile
 ```
 
 Caddyfile example:
@@ -165,7 +165,7 @@ sudo wget https://raw.githubusercontent.com/hophamlam/initial-server/main/docker
 **Now we go**
 
 ```bash
-sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
+sudo docker compose -f ~/initial-server/docker-compose.yml up -d
 ```
 
 ## Modify `Caddyfile`
@@ -173,7 +173,7 @@ sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
 Whenever you want to update new record in Caddyfile:
 
 ```bash
-sudo nano ~/portainer-caddy-wg/caddy/Caddyfile
+sudo nano ~/initial-server/caddy/Caddyfile
 ```
 
 ```bash
@@ -222,5 +222,5 @@ sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/
 ## Update portainer, caddy, wg stack
 
 ```bash
-sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml down && sudo docker compose -f ~/portainer-caddy-wg/docker-compose.yml up -d
+sudo docker compose -f ~/initial-server/docker-compose.yml down && sudo docker compose -f ~/initial-server/docker-compose.yml up -d
 ```
