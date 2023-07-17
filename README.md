@@ -15,7 +15,7 @@
 # Updated script
 
 ```bash
-wget https://github.com/hophamlam/initial-server/blob/main/test.sh && sudo chmod
+wget -O - https://github.com/hophamlam/initial-server/blob/main/test.sh | bash
 ```
 
 # This script will install:
