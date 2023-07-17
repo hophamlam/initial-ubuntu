@@ -12,6 +12,12 @@
   - [In case you need to install Portainer Agent](#in-case-you-need-to-install-portainer-agent)
   - [Update portainer, caddy, wg stack](#update-portainer-caddy-wg-stack)
 
+# Updated script
+
+```bash
+https://github.com/hophamlam/initial-server/blob/main/test.sh
+```
+
 # This script will install:
 
 - Initial new fresh server using [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (a new non-root user, turn on SSH-key login, disable root login)
