@@ -40,7 +40,8 @@ while true; do
   echo
 
   # Prompt the user to select an option
-  read -r -p "$(tput bold)$(tput setaf 6)Enter your choice (or q to quit):$(tput sgr0) " choice
+  echo -n "$(tput bold)$(tput setaf 6)Enter your choice (or q to quit):$(tput sgr0) "
+  read -r choice
 
   # Check if the input is a valid option or the quit command
   if [[ "$choice" =~ ^[0-9]+$ ]] && ((choice >= 1 && choice <= ${#options[@]})); then
