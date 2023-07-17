@@ -49,27 +49,7 @@ while true; do
       echo "You selected ${bold}Option 1${normal}"
       echo "Installing new non-root user with SSH key login and disabling root..."
 
-      # Download the initial-server-script.sh
-      wget -q https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh
-
-      # Make the script executable
-      chmod +x initial-server-script.sh
-
-      # Run the initial-server-script.sh
-      # ./initial-server-script.sh
-
-      # Check the script exit status
-      if [ $? -eq 0 ]; then
-        echo "Installation completed successfully."
-      else
-        echo "Installation failed."
-      fi
-
-      # Remove the downloaded script
-      rm initial-server-script.sh
-
-      # Pause before returning to the menu
-      read -r -p "Press Enter to continue..."
+      wget -O - https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh | bash
       ;;
 
     2)
