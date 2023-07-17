@@ -49,7 +49,7 @@ while true; do
       echo "You selected ${bold}Option 1${normal}"
       echo "Installing new non-root user with SSH key login and disabling root..."
 
-      wget -O - https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh | bash
+      git clone https://github.com/jasonheecs/ubuntu-server-setup.git && bash ./ubuntu-server-setup/setup.sh
       ;;
 
     2)
