@@ -15,7 +15,7 @@
 # Updated script
 
 ```bash
-https://github.com/hophamlam/initial-server/blob/main/test.sh
+wget https://github.com/hophamlam/initial-server/blob/main/test.sh
 ```
 
 # This script will install:
