@@ -48,8 +48,7 @@ while true; do
     1)
       echo "You selected ${bold}Option 1${normal}"
       echo "Installing new non-root user with SSH key login and disabling root..."
-
-      git clone https://github.com/jasonheecs/ubuntu-server-setup.git && bash ./ubuntu-server-setup/setup.sh
+      git clone https://github.com/jasonheecs/ubuntu-server-setup.git && bash ./ubuntu-server-setup/setup.sh && rm -rf ./ubuntu-server-setup
       ;;
 
     2)
