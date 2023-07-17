@@ -56,7 +56,7 @@ while true; do
       chmod +x initial-server-script.sh
 
       # Run the initial-server-script.sh
-      # ./initial-server-script.sh
+      ./initial-server-script.sh
 
       # Check the script exit status
       if [ $? -eq 0 ]; then
