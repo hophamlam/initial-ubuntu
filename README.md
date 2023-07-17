@@ -15,7 +15,7 @@
 # Updated script
 
 ```bash
-wget https://github.com/hophamlam/initial-server/blob/main/test.sh
+sudo wget https://github.com/hophamlam/initial-server/blob/main/test.sh && sudo chmod
 ```
 
 # This script will install:
@@ -49,7 +49,7 @@ nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-ke
 1 script to go (and some prompt input 😂)
 
 ```bash
-wget https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh && bash ./initial-server-script.sh
+wget -O - https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh | bash
 ```
 
 It will do apt update and upgrade, install git, clone jasonheecs repo (Install new non-root user for a fresh server with ssh-key log in and disable root). It will ask you:
