@@ -30,7 +30,7 @@ while true; do
   echo
 
   for i in "${!options[@]}"; do
-    if [[ $((i + 1)) -eq $REPLY ]]; then
+    if [[ $((i + 1)) -eq $choice ]]; then
       printf "%s%s) %s%s\n" "$selected_color" "$((i + 1))" "${options[$i]}" "$normal"
     else
       printf "%s%s) %s%s\n" "$menu_color" "$((i + 1))" "${options[$i]}" "$normal"
@@ -38,9 +38,6 @@ while true; do
   done
 
   echo
-
-  # Prompt the user to select an option
-  read -r -p "$(tput bold)$(tput setaf 6)Enter your choice (or q to quit):$(tput sgr0) " choice
 
   # Check if the input is a valid option or the quit command
   if [[ "$choice" =~ ^[0-9]+$ ]] && ((choice >= 1 && choice <= ${#options[@]})); then
@@ -94,4 +91,7 @@ while true; do
     echo "${error_color}Invalid option. Try again.${normal}"
     sleep 1
   fi
+
+  # Prompt the user to select an option
+  read -r -p "$(tput bold)$(tput setaf 6)Enter your choice (or q to quit):$(tput sgr0) " choice
 done
