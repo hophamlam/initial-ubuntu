@@ -76,3 +76,4 @@ volumes:
 
 networks:
   initial-ubuntu:
+    name: initial-ubuntu
