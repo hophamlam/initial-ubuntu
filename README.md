@@ -1,4 +1,3 @@
-- [Updated script](#updated-script)
 - [This script will install:](#this-script-will-install)
 - [Initial new fresh server using jasonheecs repo](#initial-new-fresh-server-using-jasonheecs-repo)
   - [Recommendation](#recommendation)
@@ -12,12 +11,6 @@
   - [In case you need to kill and remove all container](#in-case-you-need-to-kill-and-remove-all-container)
   - [In case you need to install Portainer Agent](#in-case-you-need-to-install-portainer-agent)
   - [Update portainer, caddy, wg stack](#update-portainer-caddy-wg-stack)
-
-# Updated script
-
-```bash
-wget -O - https://github.com/hophamlam/initial-server/blob/main/test.sh | bash
-```
 
 # This script will install:
 
@@ -50,58 +43,25 @@ nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-ke
 1 script to go (and some prompt input 😂)
 
 ```bash
-wget -O - https://raw.githubusercontent.com/hophamlam/initial-server/main/initial-server-script.sh | bash
+sudo apt-get update &&
+sudo apt-get install git &&
+git clone https://github.com/jasonheecs/ubuntu-server-setup.git && 
+bash ./ubuntu-server-setup/setup.sh
 ```
 
-It will do apt update and upgrade, install git, clone jasonheecs repo (Install new non-root user for a fresh server with ssh-key log in and disable root). It will ask you:
+It will do `apt update`, `install git`, clone [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (`Install new non-root user` for a fresh server with `ssh-key log in` and `disable root`). It will ask you (prompts):
 
-**Do you want to create a new non-root user (Recommended)**
+**Do you want to create a new non-root user (Recommended)**: `Y`
 
-<img src="https://raw.githubusercontent.com/hophamlam/initial-server/main/image/create-new-non-root-user.jpg" width="100">
+**Enter the username of the new user account:** `your-account` (not your-account, your real account)
 
-![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
+**Full name, room number, work phone, home phone, other,...**: Just `enter` for all default anwser
 
-![create-new-non-root-user](image/create-new-non-root-user.jpg)
+**Paste in the public SSH key for the new user**: This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again. Paste the `id_rsa.pub` we have prepared before
 
-![create-new-non-root-user](image/create-new-non-root-user.jpg | width=100)
+**Enter the timezone for the server (Default is 'Asia/Singapore')**: `your-server-timezone` (mine is Asia/Ho_Chi_Minh) Check [List of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-![create-new-non-root-user](image/create-new-non-root-user.jpg =250x250)
-
-```
-Y
-```
-
-**Enter the username of the new user account:**
-
-![new-user-account](image/new-user-account.jpg)
-
-`your-account` (not your-account, your real account)
-
-**Full name, room number, work phone, home phone, other,...**
-
-Just `enter` for all default anwser
-
-**Paste in the public SSH key for the new user**
-
-This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again
-
-![ssh-key](image/ssh-key.jpg)
-
-Paste the `id_rsa.pub` we have prepared before
-
-**Enter the timezone for the server (Default is 'Asia/Singapore')**
-
-![timezone](image/timezone.jpg)
-
-`your-server-timezone`
-
-mine is
-
-```
-Asia/Ho_Chi_Minh
-```
-
-Check [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+<img src="image/create-new-non-root-user.jpg" width="300"><img src="image/new-user-account.jpg" width="300"><img src="image/ssh-key.jpg" width="300"><img src="image/timezone.jpg" width="300"><img src="https://raw.githubusercontent.com/hophamlam/initial-server/main/image/create-new-non-root-user.jpg" width="300">
 
 ## Check if everything is good
 
