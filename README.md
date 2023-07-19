@@ -55,7 +55,7 @@ It will do `apt update`, `install git`, clone [jasonheecs repo](https://github.c
 
 **Enter the username of the new user account:** `your-account` (not your-account, your real account)
 
-**Full name, room number, work phone, home phone, other,...**: Just `enter` for all default anwser
+**Full name, room number, work phone, home phone, other,...**: Just `enter` for all default anwser (6 enters)
 
 **Paste in the public SSH key for the new user**: This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again. Paste the `id_rsa.pub` we have prepared before
 
