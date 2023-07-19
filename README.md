@@ -1,3 +1,4 @@
+- [Updated script](#updated-script)
 - [This script will install:](#this-script-will-install)
 - [Initial new fresh server using jasonheecs repo](#initial-new-fresh-server-using-jasonheecs-repo)
   - [Recommendation](#recommendation)
@@ -56,7 +57,15 @@ It will do apt update and upgrade, install git, clone jasonheecs repo (Install n
 
 **Do you want to create a new non-root user (Recommended)**
 
+<img src="https://raw.githubusercontent.com/hophamlam/initial-server/main/image/create-new-non-root-user.jpg" width="100">
+
+![](https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png | width=100)
+
 ![create-new-non-root-user](image/create-new-non-root-user.jpg)
+
+![create-new-non-root-user](image/create-new-non-root-user.jpg | width=100)
+
+![create-new-non-root-user](image/create-new-non-root-user.jpg =250x250)
 
 ```
 Y
