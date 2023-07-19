@@ -35,7 +35,7 @@ handle_option2() {
   echo "Install Caddy Server + Portainer CE + Wireguard Server... "
   sudo nano ~/initial-ubuntu/caddy/docker-compose.yml
   sudo nano ~/initial-ubuntu/caddy/Caddyfile
-  sudo docker-compose -f ~/initial-ubuntu/caddy/docker-compose.yml up
+  sudo docker-compose -f ~/initial-ubuntu/caddy/docker-compose.yml up -d
   # Add your code here for option 3
   read -p "Press enter to continue"
 }
