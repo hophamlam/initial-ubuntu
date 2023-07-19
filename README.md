@@ -49,17 +49,13 @@ git clone https://github.com/jasonheecs/ubuntu-server-setup.git &&
 bash ./ubuntu-server-setup/setup.sh
 ```
 
-It will do `apt update`, `install git`, clone [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (`Install new non-root user` for a fresh server with `ssh-key log in` and `disable root`). It will ask you (prompts):
+It will do `apt update`, `install git`, clone [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (`Install new non-root user` for a fresh server with `ssh-key log in` and `disable root login`). It will ask you (prompts):
 
-**Do you want to create a new non-root user (Recommended)**: `Y`
-
-**Enter the username of the new user account:** `your-account` (not your-account, your real account)
-
-**Full name, room number, work phone, home phone, other,...**: Just `enter` for all default anwser (6 enters)
-
-**Paste in the public SSH key for the new user**: This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again. Paste the `id_rsa.pub` we have prepared before
-
-**Enter the timezone for the server (Default is 'Asia/Singapore')**: `your-server-timezone` (mine is Asia/Ho_Chi_Minh) Check [List of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+- **Do you want to create a new non-root user (Recommended)**: `Y`
+- **Enter the username of the new user account:** `your-account` (not your-account, your real account)
+- **Full name, room number, work phone, home phone, other,...**: Just `enter` for all default anwser (6 enters)
+- **Paste in the public SSH key for the new user**: This is the important one, if pass the wrong key, you have to rebuild the server and re-do all the task again. Paste the `id_rsa.pub` we have prepared before
+- **Enter the timezone for the server (Default is 'Asia/Singapore')**: `your-server-timezone` (mine is Asia/Ho_Chi_Minh) Check [List of time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
 <img src="image/create-new-non-root-user.jpg" width="300"><img src="image/new-user-account.jpg" width="300"><img src="image/ssh-key.jpg" width="300"><img src="image/timezone.jpg" width="300"><img src="https://raw.githubusercontent.com/hophamlam/initial-server/main/image/create-new-non-root-user.jpg" width="300">
 
