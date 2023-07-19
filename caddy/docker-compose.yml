@@ -71,7 +71,7 @@ services:
 volumes:
   portainer_data:
   caddy_data:
-    external: true
+    # external: true
   caddy_config:
 
 networks:
