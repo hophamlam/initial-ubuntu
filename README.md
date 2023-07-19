@@ -66,17 +66,7 @@ It will do `apt update`, `install git`, clone [jasonheecs repo](https://github.c
 ## Check if everything is good
 
 **SSH-key login:**
-Open a new terminal Git Bash, try:
-
-```bash
-ssh your-remote-server-ip
-```
-
-or
-
-```bash
-ssh your-account@your-remote-server-ip
-```
+Open a new terminal Git Bash, try `ssh your-remote-server-ip` or `ssh your-account@your-remote-server-ip`
 
 If you can log in without input password, you good and **from now you should exit root user ssh session and using** `ssh user@your-server`
 
