@@ -1,8 +1,5 @@
 version: "3.3"
 
-networks:
-  initial-server:
-
 services:
   portainer:
     image: portainer/portainer-ce:latest
@@ -11,28 +8,30 @@ services:
     security_opt:
       - no-new-privileges:true
     volumes:
+      - portainer_data:/data
       - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./portainer/portainer-data:/data
     networks:
-      - initial-server
+      - initial-ubuntu
     ports:
-      - 9000:9000
+      - "8000:8000"
+      - "9443:9443"
 
   caddy:
     image: caddy:latest
     restart: unless-stopped
     container_name: caddy
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
     volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ./caddy/site:/srv
-      - ./caddy/caddy_data:/data
-      - ./caddy/caddy_config:/config
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - ./site:/srv
+      - caddy_data:/data
+      - caddy_config:/config
     networks:
-      - initial-server
+      - initial-ubuntu
 
   wg-easy:
     environment:
@@ -55,13 +54,13 @@ services:
     image: weejewel/wg-easy:latest
     container_name: wg-easy
     volumes:
-      - ./wg:/etc/wireguard
+      - .:/etc/wireguard
     ports:
       - "51820:51820/udp"
       - "51821:51821/tcp"
     restart: unless-stopped
     networks:
-      - initial-server
+      - initial-ubuntu
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
@@ -70,6 +69,10 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
 
 volumes:
+  portainer_data:
   caddy_data:
     external: true
   caddy_config:
+
+networks:
+  initial-ubuntu:
