@@ -1,6 +1,6 @@
 ## Image source
 
-<img src="https://raw.githubusercontent.com/hophamlam/initial-server/main/image/create-new-non-root-user.jpg" width="200" /> 
+<img src="image/create-new-non-root-user.jpg" width="200" /> 
 
 ## Other information
 
