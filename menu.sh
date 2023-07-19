@@ -32,10 +32,11 @@ handle_option1() {
 
 # Function to handle option 2
 handle_option2() {
-  echo "Installing Caddy Server... "
+  echo "Install Caddy Server + Portainer CE + Wireguard Server... "
+  sudo nano /caddy/docker-compose.yml
+  sudo nano /caddy/Caddyfile
   # Add your code here for option 3
   read -p "Press enter to continue"
-
 }
 
 # Function to handle option 3
