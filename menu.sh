@@ -8,7 +8,7 @@ display_menu() {
   echo "=============================="
   echo "1. Install Docker and Docker-compose"
   echo "2. Install Caddy Server + Portainer CE + Wireguard Server"
-  echo "3. Option 3"
+  echo "3. Kill Caddy-Portainer-WG stack"
   echo "q. Quit"
   echo "=============================="
   echo
