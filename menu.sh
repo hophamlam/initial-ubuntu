@@ -33,14 +33,14 @@ handle_option1() {
 # Function to handle option 2
 handle_option2() {
   echo "Install Caddy Server + Portainer CE + Wireguard Server... "
-  sudo docker volume create --name=caddy_data &&
-    sudo mkdir ~/initial-ubuntu/caddy &&
-    sudo mkdir ~/initial-ubuntu/portainer &&
-    sudo mkdir ~/initial-ubuntu/wg &&
-    sudo nano ~/initial-ubuntu/caddy/Caddyfile &&
-    sudo wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/caddy/docker-compose.yml -P ~/initial-ubuntu/ &&
-    sudo nano ~/initial-ubuntu/docker-compose.yml &&
-    sudo docker compose -f ~/initial-ubuntu/docker-compose.yml up -d
+  sudo docker volume create --name=caddy_data
+  sudo mkdir ~/initial-ubuntu/caddy
+  sudo mkdir ~/initial-ubuntu/portainer
+  sudo mkdir ~/initial-ubuntu/wg
+  sudo nano ~/initial-ubuntu/caddy/Caddyfile
+  sudo wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/caddy/docker-compose.yml -P ~/initial-ubuntu/
+  sudo nano ~/initial-ubuntu/docker-compose.yml
+  sudo docker compose -f ~/initial-ubuntu/docker-compose.yml up -d
   read -p "Press enter to continue"
 }
 
