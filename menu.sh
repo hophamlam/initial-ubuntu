@@ -8,13 +8,15 @@ display_menu() {
   echo "=============================="
   echo "1. Install Docker and Docker-compose"
   echo "2. Install Caddy Server + Portainer CE + Wireguard Server"
-  echo "3. Kill Caddy-Portainer-WG stack"
-  echo "4. Update Caddyfile"
-  echo "5. Install Portainer Agent"
+  echo "3. Re-create Caddy-Portainer-WG stack"
+  echo "4. Kill Caddy-Portainer-WG stack"
+  echo "5. Update Caddyfile"
+  echo "6. Install Portainer Agent"
+  echo "7. Nothing yet"
   echo "q. Quit"
   echo "=============================="
   echo
-  echo "Enter your choice (1-4) or 'q' to quit:"
+  echo "Enter your choice (1-7) or 'q' to quit:"
 }
 
 # Function to handle option 1
@@ -50,6 +52,15 @@ handle_option2() {
 
 # Function to handle option 3
 handle_option3() {
+  echo "Re-create Caddy-Portainer-WG stack..."
+  cd ~/initial-ubuntu
+  sudo docker compose up -d --force-recreate
+  cd ~
+  read -p "Press enter to continue"
+}
+
+# Function to handle option 3
+handle_option4() {
   cd ~/initial-ubuntu
   echo "Kill Caddy-Portainer-WG stack... "
   sudo docker compose down
@@ -58,7 +69,7 @@ handle_option3() {
 }
 
 # Function to handle option 4
-handle_option4() {
+handle_option5() {
   echo "Update Caddyfile"
   cd ~/initial-ubuntu
   nano ./caddy/Caddyfile
@@ -68,14 +79,14 @@ handle_option4() {
 }
 
 # Function to handle option 5
-handle_option5() {
+handle_option6() {
   echo "Install Portainer Agent"
   sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
   read -p "Press enter to continue"
 }
 
 # Function to handle option 6
-handle_option6() {
+handle_option7() {
   echo "Nothing yet"
   read -p "Press enter to continue"
 }
