@@ -9,10 +9,12 @@ display_menu() {
   echo "1. Install Docker and Docker-compose"
   echo "2. Install Caddy Server + Portainer CE + Wireguard Server"
   echo "3. Kill Caddy-Portainer-WG stack"
+  echo "4. Update Caddyfile"
+  echo "5. Install Portainer Agent"
   echo "q. Quit"
   echo "=============================="
   echo
-  echo "Enter your choice (1-3) or 'q' to quit:"
+  echo "Enter your choice (1-4) or 'q' to quit:"
 }
 
 # Function to handle option 1
@@ -55,6 +57,29 @@ handle_option3() {
   read -p "Press enter to continue"
 }
 
+# Function to handle option 4
+handle_option4() {
+  echo "Update Caddyfile"
+  cd ~/initial-ubuntu
+  nano ./caddy/Caddyfile
+  cd ~
+  sudo docker restart caddy
+  read -p "Press enter to continue"
+}
+
+# Function to handle option 5
+handle_option5() {
+  echo "Install Portainer Agent"
+  sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+  read -p "Press enter to continue"
+}
+
+# Function to handle option 6
+handle_option6() {
+  echo "Nothing yet"
+  read -p "Press enter to continue"
+}
+
 # Main script logic
 while true; do
   display_menu
@@ -69,6 +94,15 @@ while true; do
     ;;
   3)
     handle_option3
+    ;;
+  4)
+    handle_option4
+    ;;
+  5)
+    handle_option5
+    ;;
+  6)
+    handle_option6
     ;;
   q | Q)
     echo "Exiting..."
