@@ -59,7 +59,7 @@ handle_option3() {
   read -p "Press enter to continue"
 }
 
-# Function to handle option 3
+# Function to handle option 4
 handle_option4() {
   cd ~/initial-ubuntu
   echo "Kill Caddy-Portainer-WG stack... "
@@ -68,7 +68,7 @@ handle_option4() {
   read -p "Press enter to continue"
 }
 
-# Function to handle option 4
+# Function to handle option 5
 handle_option5() {
   echo "Update Caddyfile"
   cd ~/initial-ubuntu
@@ -78,14 +78,14 @@ handle_option5() {
   read -p "Press enter to continue"
 }
 
-# Function to handle option 5
+# Function to handle option 6
 handle_option6() {
   echo "Install Portainer Agent"
   sudo docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
   read -p "Press enter to continue"
 }
 
-# Function to handle option 6
+# Function to handle option 7
 handle_option7() {
   echo "Nothing yet"
   read -p "Press enter to continue"
