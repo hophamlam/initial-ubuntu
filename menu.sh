@@ -115,6 +115,9 @@ while true; do
   6)
     handle_option6
     ;;
+  7)
+    handle_option7
+    ;;
   q | Q)
     echo "Exiting..."
     exit 0
