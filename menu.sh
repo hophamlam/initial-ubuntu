@@ -34,7 +34,6 @@ handle_option1() {
 handle_option2() {
   echo "Install Caddy Server + Portainer CE + Wireguard Server... "
   sudo docker volume create --name=caddy_data &&
-    sudo mkdir ~/initial-ubuntu &&
     sudo mkdir ~/initial-ubuntu/caddy &&
     sudo mkdir ~/initial-ubuntu/portainer &&
     sudo mkdir ~/initial-ubuntu/wg &&
