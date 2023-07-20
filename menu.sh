@@ -50,7 +50,7 @@ handle_option2() {
 handle_option3() {
   cd ~/initial-ubuntu
   echo "Kill Caddy-Portainer-WG stack... "
-  sudo docker compose up -d
+  sudo docker compose down
   cd ~
   read -p "Press enter to continue"
 }
