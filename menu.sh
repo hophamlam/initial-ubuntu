@@ -34,20 +34,24 @@ handle_option1() {
 handle_option2() {
   echo "Install Caddy Server + Portainer CE + Wireguard Server... "
   sudo docker volume create --name=caddy_data
-  mkdir ~/initial-ubuntu/caddy
-  mkdir ~/initial-ubuntu/portainer
-  mkdir ~/initial-ubuntu/wg
-  nano ~/initial-ubuntu/caddy/Caddyfile
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/caddy/docker-compose.yml -P ~/initial-ubuntu/
-  nano ~/initial-ubuntu/docker-compose.yml
-  sudo docker compose -f ~/initial-ubuntu/docker-compose.yml up -d
+  cd ~/initial-ubuntu
+  mkdir ./caddy
+  mkdir ./portainer
+  mkdir ./wg
+  nano ./caddy/Caddyfile
+  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/caddy/docker-compose.yml
+  nano ./docker-compose.yml
+  sudo docker compose -f ./docker-compose.yml up -d
+  cd ~
   read -p "Press enter to continue"
 }
 
 # Function to handle option 3
 handle_option3() {
+  cd ~/initial-ubuntu
   echo "Kill Caddy-Portainer-WG stack... "
-  sudo docker compose -f ~/initial-ubuntu/docker-compose.yml up -d
+  sudo docker compose up -d
+  cd ~
   read -p "Press enter to continue"
 }
 
