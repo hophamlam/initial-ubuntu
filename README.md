@@ -74,8 +74,16 @@ If you can log in without input password, you good and **from now you should exi
 - [Caddy-server](https://caddyserver.com/)
 - [Wireguard Server](https://github.com/WeeJeWel/wg-easy)
 
+Download script and run
+
 ```bash
 wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/menu.sh -P ~/initial-ubuntu/ && bash ~/initial-ubuntu/menu.sh
+```
+
+Re-run
+
+```bash
+bash ~/initial-ubuntu/menu.sh
 ```
 
 **==============================OLD_README========================**
