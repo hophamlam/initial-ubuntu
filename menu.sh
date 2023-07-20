@@ -46,8 +46,8 @@ handle_option2() {
 
 # Function to handle option 3
 handle_option3() {
-  echo "Installing Option 3..."
-
+  echo "Kill Caddy-Portainer-WG stack... "
+  sudo docker compose -f ~/initial-ubuntu/docker-compose.yml up -d
   read -p "Press enter to continue"
 }
 

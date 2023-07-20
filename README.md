@@ -75,7 +75,7 @@ If you can log in without input password, you good and **from now you should exi
 - [Wireguard Server](https://github.com/WeeJeWel/wg-easy)
 
 ```bash
-sudo wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/menu.sh -P ~/initial-ubuntu/ && sudo bash ~/initial-ubuntu/menu.sh
+wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/menu.sh -P ~/initial-ubuntu/ && bash ~/initial-ubuntu/menu.sh
 ```
 
 **==============================OLD_README========================**
