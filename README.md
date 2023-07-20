@@ -3,8 +3,10 @@
   - [Recommendation](#recommendation)
   - [Getting Started](#getting-started)
   - [Check if everything is good](#check-if-everything-is-good)
+- [My customized menu script to install:](#my-customized-menu-script-to-install)
 - [Install Docker and Docker-compose](#install-docker-and-docker-compose)
 - [Install Portainer CE \& Caddy-server \& Wireguard Server](#install-portainer-ce--caddy-server--wireguard-server)
+- [This script will install](#this-script-will-install-1)
   - [Before you go](#before-you-go)
   - [1 script to Install Portainer CE \& Caddy-server \& Wireguard Server](#1-script-to-install-portainer-ce--caddy-server--wireguard-server)
   - [Modify `Caddyfile`](#modify-caddyfile)
@@ -45,7 +47,7 @@ nano ~/.ssh/known_hosts ## In case you re-install server & remove all old ssh-ke
 ```bash
 sudo apt-get update &&
 sudo apt-get install git &&
-git clone https://github.com/jasonheecs/ubuntu-server-setup.git && 
+git clone https://github.com/jasonheecs/ubuntu-server-setup.git &&
 bash ./ubuntu-server-setup/setup.sh
 ```
 
@@ -66,6 +68,18 @@ Open a new terminal Git Bash, try `ssh your-remote-server-ip` or `ssh your-accou
 
 If you can log in without input password, you good and **from now you should exit root user ssh session and using** `ssh user@your-server`
 
+# My customized menu script to install:
+
+- [Portainer CE](https://docs.portainer.io/start/install-ce)
+- [Caddy-server](https://caddyserver.com/)
+- [Wireguard Server](https://github.com/WeeJeWel/wg-easy)
+
+```bash
+sudo wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/menu.sh -P ~/initial-ubuntu/ && sudo bash ~/initial-ubuntu/menu.sh
+```
+
+**==============================OLD_README========================**
+
 # Install Docker and Docker-compose
 
 Log in as user you just created `ssh user@your-server` from local or `su - yourusername` from root access
@@ -83,6 +97,7 @@ sudo docker --version && docker-compose --version
 ![docker](image/docker.jpg)
 
 # Install [Portainer CE](https://docs.portainer.io/start/install-ce) & [Caddy-server](https://caddyserver.com/) & [Wireguard Server](https://github.com/WeeJeWel/wg-easy)
+
 # This script will install
 
 - [Portainer CE](https://docs.portainer.io/start/install-ce)
