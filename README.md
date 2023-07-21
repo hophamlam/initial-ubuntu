@@ -40,7 +40,6 @@ apt-get update &&
 apt-get install git &&
 git clone https://github.com/jasonheecs/ubuntu-server-setup.git &&
 bash ./ubuntu-server-setup/setup.sh
-rm -rf ubuntu-server-setup
 ```
 
 It will do `apt update`, `install git`, clone [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (`Install new non-root user` for a fresh server with `ssh-key log in` and `disable root login`). It will ask you (prompts):
