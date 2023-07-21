@@ -42,10 +42,12 @@ handle_option2() {
   mkdir ./caddy
   mkdir ./portainer
   mkdir ./wg
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/caddy/Caddyfile -P ~/caddy/
+  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/Caddyfile -P ~/caddy/
   nano ./caddy/Caddyfile
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/caddy/docker-compose.yml
+  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/docker-compose.yml
   nano ./docker-compose.yml
+  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/.env
+  nano ./.env
   sudo docker compose -f ./docker-compose.yml up -d
   cd ~
   read -p "Press enter to continue"

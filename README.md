@@ -77,3 +77,20 @@ Re-run
 ```bash
 bash ~/initial-ubuntu/menu.sh
 ```
+
+<img src="image/script.jpg" width="300">
+
+```
+initial-ubuntu/
+├── caddy/
+│ └── Caddyfile
+├── wg/
+│ ├── site/
+│ │ └── .
+│ ├── wg/
+│ │ └── .
+│ ├── wg0.conf
+│ └── wg0.json
+├── docker-compose.yml
+└── menu.sh
+```
