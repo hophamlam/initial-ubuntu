@@ -41,7 +41,7 @@ handle_option2() {
   cd ~/initial-ubuntu
   mkdir ./caddy
   mkdir ./wg
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/Caddyfile -P ~/caddy/
+  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/Caddyfile -P ./caddy/
   nano ./caddy/Caddyfile
   wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/docker-compose.yml
   nano ./docker-compose.yml
