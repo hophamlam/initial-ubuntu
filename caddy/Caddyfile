@@ -1,3 +1,0 @@
-portainer.your-domain.com {
-  reverse_proxy portainer:9443 # Reverse proxy to Portainer container example
-}
