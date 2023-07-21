@@ -1,3 +1,4 @@
+# Leave default if you're not sure what you're doing
 version: "3.3"
 
 services:
