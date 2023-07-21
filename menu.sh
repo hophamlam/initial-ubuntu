@@ -40,7 +40,6 @@ handle_option2() {
   sudo docker volume create --name=caddy_data
   cd ~/initial-ubuntu
   mkdir ./caddy
-  mkdir ./portainer
   mkdir ./wg
   wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/Caddyfile -P ~/caddy/
   nano ./caddy/Caddyfile

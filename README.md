@@ -82,14 +82,13 @@ bash ~/initial-ubuntu/menu.sh
 ```
 initial-ubuntu/
 ├── caddy/
-│ └── Caddyfile
+│   ├── Caddyfile
+│   └── site/
+│       └── .
 ├── wg/
-│ ├── site/
-│ │ └── .
-│ ├── wg/
-│ │ └── .
-│ ├── wg0.conf
-│ └── wg0.json
+│   ├── wg0.conf
+│   └── wg0.json
 ├── docker-compose.yml
-└── menu.sh
+├── menu.sh
+└── .env
 ```
