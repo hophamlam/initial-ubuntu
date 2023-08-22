@@ -21,12 +21,8 @@ display_menu() {
 
 # Function to handle option 1
 handle_option1() {
-  echo "Installing Docker..."
+  echo "Installing Docker and Docker Compose using convenience script..."
   curl -fsSL https://get.docker.com | bash
-  echo "Installing Docker-Compose..."
-  mkdir -p ~/.docker/cli-plugins/
-  curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose
-  chmod +x ~/.docker/cli-plugins/docker-compose
   echo "Check if Docker & Docker-Compose is installed"
   docker --version && docker compose version
   read -p "Installation complete. Press enter to leave"
