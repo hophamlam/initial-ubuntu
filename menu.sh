@@ -7,10 +7,10 @@ display_menu() {
   echo "          MENU OPTIONS         "
   echo "=============================="
   echo "1. Install Docker and Docker-compose"
-  echo "2. Install Caddy Server + Portainer CE + Wireguard Server"
-  echo "3. Re-create Caddy-Portainer-WG stack"
-  echo "4. Kill Caddy-Portainer-WG stack"
-  echo "5. Update Caddyfile"
+  echo "2. Install Caddy-Docker-Proxy from lucaslorentz"
+  echo "3. "
+  echo "4. "
+  echo "5. "
   echo "6. Install Portainer Agent"
   echo "7. Nothing yet"
   echo "q. Quit"
@@ -30,47 +30,29 @@ handle_option1() {
 
 # Function to handle option 2
 handle_option2() {
-  echo "Install Caddy Server + Portainer CE + Wireguard Server... "
-  sudo docker volume create --name=caddy_data
-  cd ~/initial-ubuntu
-  mkdir ./caddy
-  mkdir ./wg
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/Caddyfile -P ./caddy/
-  nano ./caddy/Caddyfile
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/docker-compose.yml
-  nano ./docker-compose.yml
-  wget https://raw.githubusercontent.com/hophamlam/initial-ubuntu/main/.env
-  nano ./.env
-  sudo docker compose -f ./docker-compose.yml up -d
-  cd ~
+  echo "Installing Caddy-Docker-Proxy from lucaslorentz... "
+  sudo docker network create caddy
+  cd initial-ubuntu
+  mkdir caddy
+  
   read -p "Press enter to continue"
 }
 
 # Function to handle option 3
 handle_option3() {
   echo "Re-create Caddy-Portainer-WG stack..."
-  cd ~/initial-ubuntu
-  sudo docker compose up -d --force-recreate
-  cd ~
   read -p "Press enter to continue"
 }
 
 # Function to handle option 4
 handle_option4() {
-  cd ~/initial-ubuntu
   echo "Kill Caddy-Portainer-WG stack... "
-  sudo docker compose down
-  cd ~
   read -p "Press enter to continue"
 }
 
 # Function to handle option 5
 handle_option5() {
   echo "Update Caddyfile"
-  cd ~/initial-ubuntu
-  nano ./caddy/Caddyfile
-  cd ~
-  sudo docker restart caddy
   read -p "Press enter to continue"
 }
 
