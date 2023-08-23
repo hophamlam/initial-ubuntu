@@ -32,9 +32,10 @@ handle_option1() {
 handle_option2() {
   echo "Installing Caddy-Docker-Proxy from lucaslorentz... "
   sudo docker network create caddy
-  cd initial-ubuntu
+  cd ~/initial-ubuntu
   mkdir caddy
-  
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/caddy/docker-compose.caddy.yml -P ./caddy
+  sudo docker compose -f ./caddy/docker-compose.caddy.yml up -d
   read -p "Press enter to continue"
 }
 
