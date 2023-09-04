@@ -26,7 +26,15 @@ handle_option1() {
   echo "Check if Docker & Docker-Compose is installed"
   sudo usermod -aG docker $(whoami)
   docker --version && docker compose version
-  read -p "Installation complete. Press enter to leave"
+  read -p "Installation complete. Continue to setup run docker rootless tool"
+  sudo sh -eux <<EOF
+  # Install newuidmap & newgidmap binaries
+  apt-get install -y uidmap
+  EOF
+  dockerd-rootless-setuptool.sh install
+  echo "Test docker run hello-world"
+  docker run hello-world
+  echo "You can run docker in rootless mode from now"
 }
 
 # Function to handle option 2
