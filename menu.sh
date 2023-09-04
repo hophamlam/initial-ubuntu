@@ -26,7 +26,7 @@ handle_option1() {
   echo "Check if Docker & Docker-Compose is installed"
   sudo usermod -aG docker $(whoami)
   docker --version && docker compose version
-  read -p "Installation complete. Continue to setup run docker rootless tool"
+  sudo chmod 666 /var/run/docker.sock
   sudo gpasswd -a $USER docker
   echo "Test docker run hello-world"
   docker run hello-world
