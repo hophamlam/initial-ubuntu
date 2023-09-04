@@ -9,6 +9,15 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "portainer_data:/data"
     restart: always
+    labels:
+      caddy: ${PORTAINER_DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 9000}}"
+    networks:
+      - caddy
 
 volumes:
   portainer_data:
+
+networks:
+  caddy:
+    external: true

@@ -9,6 +9,15 @@ services:
     ports:
       - "3001:3001" # <Host Port>:<Container Port>
     restart: always
+    labels:
+      caddy: ${UPTIMEKUMA_DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 3001}}"
+    networks:
+      - caddy
 
 volumes:
   uptime-kuma:
+
+networks:
+  caddy:
+    external: true

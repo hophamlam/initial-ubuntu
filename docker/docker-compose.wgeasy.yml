@@ -4,7 +4,7 @@ services:
     environment:
       # ⚠️ Required:
       # Change this to your host's public address
-      # - WG_HOST=example.com
+      - WG_HOST=${WIREGUARD_DOMAIN} #uncomment if not needed
 
       # Optional:
       # - PASSWORD=foobar123
@@ -21,7 +21,7 @@ services:
     image: weejewel/wg-easy
     container_name: wg-easy
     volumes:
-      - .:/etc/wireguard
+      - ./wg:/etc/wireguard
     ports:
       - "51820:51820/udp"
       - "51821:51821/tcp"
@@ -32,3 +32,12 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
+    labels:
+      caddy: ${WIREGUARD_DOMAIN}
+      caddy.reverse_proxy: "{{upstreams 51821}}"
+    networks:
+      - caddy
+
+networks:
+  caddy:
+    external: true
