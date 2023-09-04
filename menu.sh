@@ -27,11 +27,12 @@ handle_option1() {
   sudo usermod -aG docker $(whoami)
   docker --version && docker compose version
   read -p "Installation complete. Continue to setup run docker rootless tool"
-  sudo sh -eux <<EOF
-  # Install newuidmap & newgidmap binaries
-  apt-get install -y uidmap
-  EOF
-  dockerd-rootless-setuptool.sh install
+########## BEGIN ##########
+sudo sh -eux <<EOF
+# Install newuidmap & newgidmap binaries
+apt-get install -y uidmap
+EOF
+########## END ##########
   echo "Test docker run hello-world"
   docker run hello-world
   echo "You can run docker in rootless mode from now"
