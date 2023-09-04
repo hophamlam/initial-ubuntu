@@ -46,7 +46,7 @@ handle_option2() {
   mkdir caddy
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
   nano ./docker-compose.caddy.yml
-  docker compose -f ./docker-compose.caddy.yml --env-file ./.env up -d
+  sudo docker compose -f ./docker-compose.caddy.yml up -d
   read -p "Press enter to continue"
 }
 
