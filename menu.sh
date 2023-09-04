@@ -35,8 +35,9 @@ handle_option2() {
   docker network create caddy
   cd ~/initial-ubuntu
   mkdir caddy
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/caddy/docker-compose.caddy.yml -P ./caddy
-  docker compose -f ./caddy/docker-compose.caddy.yml up -d
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
+  nano ./docker-compose.caddy.yml
+  docker compose -f ./docker-compose.caddy.yml up -d
   read -p "Press enter to continue"
 }
 
@@ -45,11 +46,21 @@ handle_option3() {
   echo "Installing Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
   echo "Installing Portainer CE"
   docker volume create portainer_data
-  docker run -d -p 8000:8000 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.portainer.yml
+  nano ./docker-compose.portainer.yml
+  docker compose -f ./docker-compose.portainer.yml up -d
   echo "Installing Portainer CE"
   docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
   echo "Installing wg-easy"
-  
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.wg.yml
+  nano ./docker-compose.wg.yml
+  docker compose -f ./docker-compose.wg.yml up -d
+  echo "Installing wg-easy"
+  # Create a volume
+  docker volume create uptimekuma_data
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.uptimekuma.yml
+  nano ./docker-compose.uptimekuma.yml
+  docker compose -f ./docker-compose.uptimekuma.yml up -d
   read -p "Press enter to continue"
 }
 
