@@ -1,10 +1,3 @@
-- [This script will install:](#this-script-will-install)
-- [Initial new fresh server using jasonheecs repo](#initial-new-fresh-server-using-jasonheecs-repo)
-  - [Recommendation](#recommendation)
-  - [Getting Started](#getting-started)
-  - [Check if everything is good](#check-if-everything-is-good)
-- [My customized menu script to install:](#my-customized-menu-script-to-install)
-
 # This script will install:
 
 - Initial new fresh server using [jasonheecs repo](https://github.com/jasonheecs/ubuntu-server-setup) (a new non-root user, turn on SSH-key login, disable root login)
