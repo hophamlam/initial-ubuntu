@@ -8,7 +8,7 @@ display_menu() {
   echo "=============================="
   echo "1. Install Docker and Docker-compose"
   echo "2. Install Caddy-Docker-Proxy from lucaslorentz"
-  echo "3. "
+  echo "3. Install Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
   echo "4. "
   echo "5. "
   echo "6. Install Portainer Agent"
@@ -24,6 +24,7 @@ handle_option1() {
   echo "Installing Docker and Docker Compose using convenience script..."
   curl -fsSL https://get.docker.com | bash
   echo "Check if Docker & Docker-Compose is installed"
+  sudo usermod -aG docker $(whoami)
   docker --version && docker compose version
   read -p "Installation complete. Press enter to leave"
 }
@@ -31,17 +32,24 @@ handle_option1() {
 # Function to handle option 2
 handle_option2() {
   echo "Installing Caddy-Docker-Proxy from lucaslorentz... "
-  sudo docker network create caddy
+  docker network create caddy
   cd ~/initial-ubuntu
   mkdir caddy
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/caddy/docker-compose.caddy.yml -P ./caddy
-  sudo docker compose -f ./caddy/docker-compose.caddy.yml up -d
+  docker compose -f ./caddy/docker-compose.caddy.yml up -d
   read -p "Press enter to continue"
 }
 
 # Function to handle option 3
 handle_option3() {
-  echo "Re-create Caddy-Portainer-WG stack..."
+  echo "Installing Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
+  echo "Installing Portainer CE"
+  docker volume create portainer_data
+  docker run -d -p 8000:8000 -p 9000:9000 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
+  echo "Installing Portainer CE"
+  docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
+  echo "Installing wg-easy"
+  
   read -p "Press enter to continue"
 }
 
