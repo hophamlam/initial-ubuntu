@@ -40,7 +40,7 @@ handle_option2() {
   cd ~/initial-ubuntu
   mkdir caddy
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
-  nano ./docker-compose.caddy.yml
+  nano ./docker-compose.caddy.yml &&
   sudo docker compose -f ./docker-compose.caddy.yml up -d
   read -p "Press enter to continue"
 }
