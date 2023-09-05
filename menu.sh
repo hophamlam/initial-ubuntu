@@ -40,7 +40,10 @@ handle_option2() {
   git -C ~/initial-ubuntu pull || git clone https://github.com/hophamlam/initial-ubuntu.git ~/initial-ubuntu
   cd ~/initial-ubuntu/docker
   docker network create caddy
-  nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d 
+  nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d
+  echo "Modifing domains for reverse proxy"
+  cp .env.sample .env
+  nano .env
   read -p "Press enter to continue"
   cd ~/initial-ubuntu
 }
