@@ -47,7 +47,7 @@ handle_option2() {
 # Function to handle option 3
 handle_option3() {
   echo "Installing Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
-  echo "Installing Portainer CE"
+  echo "Installing Portainer Agent"
   docker volume create portainer_data
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.portainer.yml
   nano ./docker-compose.portainer.yml && docker compose -f ./docker-compose.portainer.yml up -d
