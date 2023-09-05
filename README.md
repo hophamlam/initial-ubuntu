@@ -62,10 +62,10 @@ If you can log in without input password, you good and **from now you should exi
 Download script and run
 
 ```bash
-git -C ~/initial-ubuntu pull || git clone https://github.com/hophamlam/initial-ubuntu.git ~/initial-ubuntu
-cd initial-ubuntu
-mv ./docker/.env.sample ~/docker/.env
-nano ./docker/.env
+git -C ~/initial-ubuntu pull || git clone https://github.com/hophamlam/initial-ubuntu.git ~/initial-ubuntu &&
+cd initial-ubuntu &&
+mv ./docker/.env.sample ~/docker/.env &&
+nano ./docker/.env &&
 sh menu.sh
 ```
 
