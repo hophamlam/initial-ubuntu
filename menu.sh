@@ -50,20 +50,17 @@ handle_option3() {
   echo "Installing Portainer CE"
   docker volume create portainer_data
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.portainer.yml
-  nano ./docker-compose.portainer.yml
-  docker compose -f ./docker-compose.portainer.yml up -d
+  nano ./docker-compose.portainer.yml && docker compose -f ./docker-compose.portainer.yml up -d
   echo "Installing Portainer CE"
   docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
   echo "Installing wg-easy"
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.wgeasy.yml
-  nano ./docker-compose.wgeasy.yml
-  docker compose -f ./docker-compose.wgeasy.yml --env-file ./.env up -d
+  nano ./docker-compose.wgeasy.yml && docker compose -f ./docker-compose.wgeasy.yml --env-file ./.env up -d
   echo "Installing wg-easy"
   # Create a volume
   docker volume create uptimekuma_data
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.uptimekuma.yml
-  nano ./docker-compose.uptimekuma.yml
-  docker compose -f ./docker-compose.uptimekuma.yml --env-file ./.env up -d
+  nano ./docker-compose.uptimekuma.yml && docker compose -f ./docker-compose.uptimekuma.yml --env-file ./.env up -d
   read -p "Press enter to continue"
 }
 
