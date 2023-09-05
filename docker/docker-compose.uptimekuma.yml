@@ -11,7 +11,7 @@ services:
     restart: always
     labels:
       caddy: ${UPTIMEKUMA_DOMAIN}
-      caddy.reverse_proxy: "{{upstreams 3001}}"
+      caddy.reverse_proxy: "* {{upstreams 3001}}"
     networks:
       - caddy
 
