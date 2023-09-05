@@ -7,7 +7,7 @@ display_menu() {
   echo "          MENU OPTIONS         "
   echo "=============================="
   echo "1. Install Docker and Docker-compose"
-  echo "2. Install Caddy-Docker-Proxy from lucaslorentz & pre-define domain"
+  echo "2. Install Caddy-Docker-Proxy from lucaslorentz"
   echo "3. Install Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
   echo "4. "
   echo "5. "
@@ -41,9 +41,9 @@ handle_option2() {
   cd ~/initial-ubuntu/docker
   docker network create caddy
   nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d
-  echo "Modifing domains for reverse proxy"
-  cp .env.sample .env
-  nano .env
+  # echo "Modifing domains for reverse proxy"
+  # cp .env.sample .env
+  # nano .env
   read -p "Press enter to continue"
   cd ~/initial-ubuntu
 }
@@ -51,18 +51,15 @@ handle_option2() {
 # Function to handle option 3
 handle_option3() {
   echo "Installing Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
-  echo "Installing Portainer CE"
   git -C ~/initial-ubuntu pull || git clone https://github.com/hophamlam/initial-ubuntu.git ~/initial-ubuntu
-  docker volume create portainer_data
-  cd ~/initial-ubuntu/docker
-  nano ./docker-compose.portainer.yml && docker compose -f ./docker-compose.portainer.yml up -d
-  echo "Installing Portainer Agent"
-  docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
-  echo "Installing wg-easy"
-  nano ./docker-compose.wgeasy.yml && docker compose -f ./docker-compose.wgeasy.yml up -d
-  echo "Installing uptime kuma from louislam"
+  cd ~/initial-ubuntu/docker &&
+  docker volume create portainer_data &&
   docker volume create uptimekuma_data
-  nano ./docker-compose.uptimekuma.yml && docker compose -f ./docker-compose.uptimekuma.yml up -d
+  nano ./docker-compose.portainer.yml && nano ./docker-compose.wgeasy.yml && nano ./docker-compose.uptimekuma.yml &&
+  echo "Installing Portainer CE, wg-easy, Uptime kuma"
+  docker compose -f ./docker-compose.portainer.yml ./docker-compose.uptimekuma.yml ./docker-compose.wgeasy.yml up -d &&
+  echo "Installing Portainer Agent"
+  docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest &&
   cd ~/initial-ubuntu
   read -p "Press enter to continue"
 }
