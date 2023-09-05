@@ -42,8 +42,7 @@ handle_option2() {
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
   nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d
   echo "Download sample .env"
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/.env
-  nano .env
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/.env && nano .env
   read -p "Press enter to continue"
 }
 
