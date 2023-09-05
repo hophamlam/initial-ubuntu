@@ -7,7 +7,7 @@ display_menu() {
   echo "          MENU OPTIONS         "
   echo "=============================="
   echo "1. Install Docker and Docker-compose"
-  echo "2. Install Caddy-Docker-Proxy from lucaslorentz"
+  echo "2. Install Caddy-Docker-Proxy from lucaslorentz & pre-define domain"
   echo "3. Install Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
   echo "4. "
   echo "5. "
@@ -41,6 +41,8 @@ handle_option2() {
   mkdir caddy
   wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
   nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d
+  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
+  nano ~/.env
   read -p "Press enter to continue"
 }
 
