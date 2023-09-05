@@ -37,7 +37,7 @@ handle_option1() {
 handle_option2() {
   echo "Installing Caddy-Docker-Proxy from lucaslorentz... "
   echo "Cloning hophamlam/initial-ubuntu repo"
-  git -C '~/initial-ubuntu' pull || git clone https://github.com/hophamlam/initial-ubuntu.git '~/initial-ubuntu'
+  git -C ~/initial-ubuntu pull || git clone https://github.com/hophamlam/initial-ubuntu.git ~/initial-ubuntu
   cd ~/initial-ubuntu/docker
   docker network create caddy
   nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d 
@@ -49,7 +49,7 @@ handle_option2() {
 handle_option3() {
   echo "Installing Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
   echo "Installing Portainer CE"
-  git -C '~/initial-ubuntu' pull || git clone https://github.com/hophamlam/initial-ubuntu.git '~/initial-ubuntu'
+  git -C ~/initial-ubuntu pull || git clone https://github.com/hophamlam/initial-ubuntu.git ~/initial-ubuntu
   docker volume create portainer_data
   cd ~/initial-ubuntu/docker
   nano ./docker-compose.portainer.yml && docker compose -f ./docker-compose.portainer.yml up -d
