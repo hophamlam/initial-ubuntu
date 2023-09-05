@@ -36,33 +36,31 @@ handle_option1() {
 # Function to handle option 2
 handle_option2() {
   echo "Installing Caddy-Docker-Proxy from lucaslorentz... "
+  echo "Cloning hophamlam/initial-ubuntu repo"
+  git -C './initial-ubuntu' pull || git clone https://github.com/hophamlam/initial-ubuntu.git './initial-ubuntu'
+  cd ~/initial-ubuntu/docker
   docker network create caddy
-  cd ~/initial-ubuntu
-  mkdir caddy
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.caddy.yml
-  nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d
-  echo "Download sample .env"
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/.env && nano .env
+  nano ./docker-compose.caddy.yml && docker compose -f ./docker-compose.caddy.yml up -d 
   read -p "Press enter to continue"
+  cd ~/initial-ubuntu
 }
 
 # Function to handle option 3
 handle_option3() {
   echo "Installing Portainer CE, Portainer Agent, Wireguard VPN, Uptime Kuma"
   echo "Installing Portainer CE"
+  git -C './initial-ubuntu' pull || git clone https://github.com/hophamlam/initial-ubuntu.git './initial-ubuntu'
   docker volume create portainer_data
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.portainer.yml
+  cd ~/initial-ubuntu/docker
   nano ./docker-compose.portainer.yml && docker compose -f ./docker-compose.portainer.yml up -d
   echo "Installing Portainer Agent"
   docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
   echo "Installing wg-easy"
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.wgeasy.yml
-  nano ./docker-compose.wgeasy.yml && docker compose -f ./docker-compose.wgeasy.yml --env-file ./.env up -d
+  nano ./docker-compose.wgeasy.yml && docker compose -f ./docker-compose.wgeasy.yml up -d
   echo "Installing wg-easy"
-  # Create a volume
   docker volume create uptimekuma_data
-  wget https://github.com/hophamlam/initial-ubuntu/raw/main/docker/docker-compose.uptimekuma.yml
   nano ./docker-compose.uptimekuma.yml && docker compose -f ./docker-compose.uptimekuma.yml --env-file ./.env up -d
+  cd ~/initial-ubuntu
   read -p "Press enter to continue"
 }
 
