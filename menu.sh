@@ -57,9 +57,9 @@ handle_option3() {
   docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest
   echo "Installing wg-easy"
   nano ./docker-compose.wgeasy.yml && docker compose -f ./docker-compose.wgeasy.yml up -d
-  echo "Installing wg-easy"
+  echo "Installing uptime kuma from louislam"
   docker volume create uptimekuma_data
-  nano ./docker-compose.uptimekuma.yml && docker compose -f ./docker-compose.uptimekuma.yml --env-file ./.env up -d
+  nano ./docker-compose.uptimekuma.yml && docker compose -f ./docker-compose.uptimekuma.yml up -d
   cd ~/initial-ubuntu
   read -p "Press enter to continue"
 }
