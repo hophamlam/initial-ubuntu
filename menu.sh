@@ -57,7 +57,7 @@ handle_option3() {
   docker volume create uptimekuma_data
   nano ./docker-compose.portainer.yml && nano ./docker-compose.wgeasy.yml && nano ./docker-compose.uptimekuma.yml &&
   echo "Installing Portainer CE, wg-easy, Uptime kuma"
-  docker compose -f ./docker-compose.portainer.yml ./docker-compose.uptimekuma.yml ./docker-compose.wgeasy.yml up -d &&
+  docker compose -f ./docker-compose.portainer.yml -f ./docker-compose.uptimekuma.yml -f ./docker-compose.wgeasy.yml up -d &&
   echo "Installing Portainer Agent"
   docker run -d -p 9001:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent:latest &&
   cd ~/initial-ubuntu
